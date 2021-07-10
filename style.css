@@ -5,7 +5,10 @@ body{
 	background: -webkit-linear-gradient(to right, #b3c5d4, #8db4fb);  
 	background: linear-gradient(to right, #bdcadb, #9ac6ff); 
 }
-
+#timer{
+	width: 10%;
+	margin: 0 auto;
+}
 .container{
 	height: 430px;
 	width: 1000px;
