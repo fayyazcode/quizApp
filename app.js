@@ -80,6 +80,51 @@ var questions = [
      "answer":"3"
     }
  ];
+//timer
+var remainingTime = 120; //Seconds remaining
+var minutes = Math.floor(remainingTime / 60);
+if (minutes < 10) {
+    minutes = "0" + minutes;
+}
+var seconds = remainingTime % 60;
+if (seconds < 10) {
+    seconds = "0" + seconds;
+}
+var minutesP = document.getElementById("minutes"); // Remaining minutes para
+minutesP.innerText = minutes;
+var secondsP = document.getElementById("seconds"); // Remaining seconds para
+secondsP.innerText = ":" + seconds;
+
+
+
+
+    /* Method that calculates and displays the remaining time - Start */
+    var countdownClock = setInterval(function () {
+        remainingTime -= 1;
+        minutes = Math.floor(remainingTime / 60);
+        seconds = remainingTime % 60;
+        if (remainingTime == 0) {
+            clearInterval(countdownClock);
+            if (userChoice.innerText == qObject.correctChoice) {
+                userScore += 10;
+                correctAnswers += 1;
+            } else if (userChoice != "") {
+                wrongAnswers += 1;
+            }
+            // sessionStorage.setItem("correctAnswers", correctAnswers);
+            // sessionStorage.setItem("wrongAnswers", wrongAnswers);
+            // sessionStorage.setItem("userScore", userScore);
+            // window.location = "result.html";
+        }
+        if (minutes < 10) {
+            minutes = "0" + minutes;
+        }
+        if (seconds < 10) {
+            seconds = "0" + seconds;
+        }
+        minutesP.innerText = minutes;
+        secondsP.innerText = ":" + seconds;
+    }, 1000);
 
 
 
